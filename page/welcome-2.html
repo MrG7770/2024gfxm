@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>首页三</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="../lib/layui-v2.6.3/css/layui.css" media="all">
+    <link rel="stylesheet" href="../lib/font-awesome-4.7.0/css/font-awesome.min.css" media="all">
+    <link rel="stylesheet" href="../css/public.css" media="all">
+    <style>
+		.layui-top-box {padding:40px 20px 20px 20px;color:#fff}
+		.panel {margin-bottom:17px;background-color:#fff;border:1px solid transparent;border-radius:3px;-webkit-box-shadow:0 1px 1px rgba(0,0,0,.05);box-shadow:0 1px 1px rgba(0,0,0,.05)}
+		.panel-body {padding:15px}
+		.panel-title {margin-top:0;margin-bottom:0;font-size:14px;color:inherit}
+		.label {display:inline;padding:.2em .6em .3em;font-size:75%;font-weight:700;line-height:1;color:#fff;text-align:center;white-space:nowrap;vertical-align:baseline;border-radius:.25em;margin-top: .3em;}
+		.layui-red {color:red}
+		.main_btn > p {height:40px;}
+        .top-panel {
+            border: 1px solid #eceff9;
+            border-radius: 5px;
+            text-align: center;
+        }
+        .top-panel > .layui-card-body{
+            height: 60px;
+        }
+        .top-panel-number{
+            line-height:60px;
+            font-size: 30px;
+            border-right:1px solid #eceff9;
+        }
+        .top-panel-tips{
+            line-height:30px;
+            font-size: 12px
+        }
+    </style>
+</head>
+<body>
+<!--<div class="layuimini-container">-->
+<div class="layuimini-main">
+
+<div class="layuimini-container">
+    <div class="layuimini-main layui-top-box">
+        <div class="layui-row layui-col-space10">
+
+            <div class="layui-col-md3">
+                <div class="col-xs-6 col-md-3">
+                    <div class="panel layui-bg-cyan">
+                        <div class="panel-body">
+                            <div class="panel-title">
+                                <span class="label pull-right layui-bg-blue">实时</span>
+                                <h5>今日顾客数统计</h5>
+                            </div>
+                            <div class="panel-content">
+                                <h1 class="no-margins">1762</h1>
+                                <div class="stat-percent font-bold text-gray"><i class="fa fa-commenting"></i> 1762</div>
+                                <small>当前分店今日进店顾客总数</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="layui-col-md3">
+                <div class="col-xs-6 col-md-3">
+                    <div class="panel layui-bg-blue">
+                        <div class="panel-body">
+                            <div class="panel-title">
+                                <span class="label pull-right layui-bg-cyan">实时</span>
+                                <h5>商品销售数量统计</h5>
+                            </div>
+                            <div class="panel-content">
+                                <h1 class="no-margins">1206</h1>
+                                <div class="stat-percent font-bold text-gray"><i class="fa fa-commenting"></i> 1206</div>
+                                <small>当前分店今日销售商品总数量</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="layui-col-md3">
+                <div class="col-xs-6 col-md-3">
+                    <div class="panel layui-bg-green">
+                        <div class="panel-body">
+                            <div class="panel-title">
+                                <span class="label pull-right layui-bg-orange">实时</span>
+                                <h5>热门款式浏览量统计</h5>
+                            </div>
+                            <div class="panel-content">
+                                <h1 class="no-margins">1425</h1>
+                                <div class="stat-percent font-bold text-gray"><i class="fa fa-commenting"></i> 1425</div>
+                                <small>当前分店热门服装款式浏览总数</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="layui-col-md3">
+                <div class="col-xs-6 col-md-3">
+                    <div class="panel layui-bg-orange">
+                        <div class="panel-body">
+                            <div class="panel-title">
+                                <span class="label pull-right layui-bg-green">实时</span>
+                                <h5>订单数量统计</h5>
+                            </div>
+                            <div class="panel-content">
+                                <h1 class="no-margins">2314</h1>
+                                <div class="stat-percent font-bold text-gray"><i class="fa fa-commenting"></i> 2314</div>
+                                <small>当前分店今日接收订单总数</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="layui-row layui-col-space15">
+        <div class="layui-col-xs12 layui-col-md9">
+            <div id="echarts-records" style="background-color:#ffffff;min-height:400px;padding: 10px"></div>
+        </div>
+        <div class="layui-col-xs12 layui-col-md3">
+            <div id="echarts-pies" style="background-color:#ffffff;min-height:400px;padding: 10px"></div>
+        </div>
+    </div>
+
+
+    <div class="layui-row layui-col-space15">
+        <div class="layui-col-xs12 layui-col-md6">
+            <div id="echarts-dataset" style="background-color:#ffffff;min-height:300px;padding: 10px"></div>
+        </div>
+        <div class="layui-col-xs12 layui-col-md6">
+            <div id="echarts-map" style="background-color:#ffffff;min-height:300px;padding: 10px"></div>
+        </div>
+    </div>
+
+
+</div>
+<!--</div>-->
+<script src="../lib/layui-v2.6.3/layui.js" charset="utf-8"></script>
+<script src="../js/lay-config.js?v=1.0.4" charset="utf-8"></script>
+<script>
+    layui.use(['layer', 'echarts'], function () {
+        var $ = layui.jquery,
+            layer = layui.layer,
+            echarts = layui.echarts;
+
+        /**
+         * 报表功能
+         */
+        var echartsRecords = echarts.init(document.getElementById('echarts-records'), 'walden');
+
+        var optionRecords = {
+            title: {
+                text: '服装销售指标-报表图（按周统计）'
+            },
+            tooltip: {
+                trigger: 'axis',
+                axisPointer: {
+                    type: 'cross',
+                    label: {
+                        backgroundColor: '#6a7985'
+                    }
+                }
+            },
+            legend: {
+                data: ['连衣裙', '牛仔裤', '衬衫', 'T恤']
+            },
+            toolbox: {
+                feature: {
+                    saveAsImage: {}
+                }
+            },
+            grid: {
+                left: '3%',
+                right: '4%',
+                bottom: '3%',
+                containLabel: true
+            },
+            xAxis: [
+                {
+                    type: 'category',
+                    boundaryGap: false,
+                    data: ['周一', '周二', '周三', '周四', '周五', '周六', '周日']
+                }
+            ],
+            yAxis: [
+                {
+                    type: 'value'
+                }
+            ],
+    series: [
+        {
+            name: '连衣裙',
+            type: 'line',
+            stack: '总量',
+            areaStyle: {},
+            data: [20, 30, 25, 35, 40, 30, 28]
+        },
+        {
+            name: '牛仔裤',
+            type: 'line',
+            areaStyle: {},
+            data: [15, 20, 22, 18, 25, 30, 26]
+        },
+        {
+            name: '衬衫',
+            type: 'line',
+            stack: '总量',
+            areaStyle: {},
+            data: [10, 18, 20, 15, 12, 16, 14]
+        },
+        {
+            name: 'T恤',
+            type: 'line',
+            stack: '总量',
+            areaStyle: {},
+            data: [8, 12, 10, 14, 16, 10, 12]
+        }
+    ]
+        };
+        echartsRecords.setOption(optionRecords);
+
+
+        /**
+         * 玫瑰图表
+         */
+        var echartsPies = echarts.init(document.getElementById('echarts-pies'), 'walden');
+var optionPies = {
+    title: {
+        text: '服装销售来源占比-玫瑰图',
+        left: 'center'
+    },
+    tooltip: {
+        trigger: 'item',
+        formatter: '{a} <br/>{b} : {c} ({d}%)'
+    },
+    legend: {
+        orient: 'vertical',
+        left: 'left',
+        data: ['门店销售', '线上销售', '团购', '批发']
+    },
+    series: [
+        {
+            name: '销售来源',
+            type: 'pie',
+            radius: '55%',
+            center: ['50%', '60%'],
+            roseType: 'radius',
+            data: [
+                {value: 300, name: '门店销售'},
+                {value: 250, name: '线上销售'},
+                {value: 150, name: '团购'},
+                {value: 100, name: '批发'}
+            ],
+            emphasis: {
+                itemStyle: {
+                    shadowBlur: 10,
+                    shadowOffsetX: 0,
+                    shadowColor: 'rgba(0, 0, 0, 0.5)'
+                }
+            }
+        }
+    ]
+};
+        echartsPies.setOption(optionPies);
+
+
+        /**
+         * 柱状图
+         */
+        var echartsDataset = echarts.init(document.getElementById('echarts-dataset'), 'walden');
+
+var optionDataset = {
+    legend: {},
+    tooltip: {},
+    dataset: {
+        dimensions: ['服装款式', '分店A-2023年Q1', '分店A-2023年Q2', '分店A-2023年Q3', '分店B-2023年Q1', '分店B-2023年Q2', '分店B-2023年Q3'],
+        source: [
+            {product: '连衣裙', '分店A-2023年Q1': 43.3, '分店A-2023年Q2': 85.8, '分店A-2023年Q3': 93.7, '分店B-2023年Q1': 35.5, '分店B-2023年Q2': 78.2, '分店B-2023年Q3': 88.4},
+            {product: '牛仔裤', '分店A-2023年Q1': 83.1, '分店A-2023年Q2': 73.4, '分店A-2023年Q3': 55.1, '分店B-2023年Q1': 72.3, '分店B-2023年Q2': 65.8, '分店B-2023年Q3': 50.2},
+            {product: '衬衫', '分店A-2023年Q1': 86.4, '分店A-2023年Q2': 65.2, '分店A-2023年Q3': 82.5, '分店B-2023年Q1': 80.1, '分店B-2023年Q2': 60.3, '分店B-2023年Q3': 75.6},
+            {product: 'T恤', '分店A-2023年Q1': 72.4, '分店A-2023年Q2': 53.9, '分店A-2023年Q3': 39.1, '分店B-2023年Q1': 65.5, '分店B-2023年Q2': 48.7, '分店B-2023年Q3': 35.2}
+        ]
+    },
+    xAxis: {type: 'category'},
+    yAxis: {},
+    series: [
+        {type: 'bar'},
+        {type: 'bar'},
+        {type: 'bar'},
+        {type: 'bar'},
+        {type: 'bar'},
+        {type: 'bar'}
+    ]
+};
+
+        echartsDataset.setOption(optionDataset);
+
+
+        /**
+         * 中国地图
+         */
+        var echartsMap = echarts.init(document.getElementById('echarts-map'), 'walden');
+
+
+var optionMap = {
+    legend: {},
+    tooltip: {
+        trigger: 'axis',
+        showContent: false
+    },
+    dataset: {
+        source: [
+            ['地区', '2022年', '2023年', '2024年', '2025年', '2026年', '2027年'],
+            ['北京', 41.1, 30.4, 65.1, 53.3, 83.8, 98.7],
+            ['上海', 86.5, 92.1, 85.7, 83.1, 73.4, 55.1],
+            ['广州', 24.1, 67.2, 79.5, 86.4, 65.2, 82.5],
+            ['深圳', 55.2, 67.1, 69.2, 72.4, 53.9, 39.1]
+        ]
+    },
+    xAxis: {type: 'category'},
+    yAxis: {gridIndex: 0},
+    grid: {top: '55%'},
+    series: [
+        {type: 'line', smooth: true, seriesLayoutBy: 'row'},
+        {type: 'line', smooth: true, seriesLayoutBy: 'row'},
+        {type: 'line', smooth: true, seriesLayoutBy: 'row'},
+        {type: 'line', smooth: true, seriesLayoutBy: 'row'},
+        {
+            type: 'pie',
+            id: 'pie',
+            radius: '30%',
+            center: ['50%', '25%'],
+            label: {
+                formatter: '{b}: {@2022年} ({d}%)'
+            },
+            encode: {
+                itemName: '地区',
+                value: '2022年',
+                tooltip: '2022年'
+            }
+        }
+    ]
+};
+
+        echartsMap.setOption(optionMap);
+
+
+        // echarts 窗口缩放自适应
+        window.onresize = function () {
+            echartsRecords.resize();
+        }
+
+    });
+</script>
+</body>
+</html>
